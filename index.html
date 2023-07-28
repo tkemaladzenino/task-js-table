@@ -22,7 +22,7 @@
 </body>
 <script>
 
-    // Function to create the 10x10 table
+
     function createTable(rows, columns) {
         const table = document.createElement("table");
 
@@ -31,7 +31,7 @@
 
             for (let j = 0; j < columns; j++) {
                 const cell = document.createElement("td");
-                cell.textContent = (i * columns) + (j + 1);
+
                 row.appendChild(cell);
             }
 
@@ -43,6 +43,7 @@
 
     // Append the table to the body of the HTML document
     document.body.appendChild(createTable(10, 10));
+
 
 
 
