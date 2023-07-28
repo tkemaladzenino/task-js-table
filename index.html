@@ -22,27 +22,43 @@
 </body>
 <script>
 
+    function createTable() {
+        const table = document.getElementById("myTable");
+        const numbers = generateNumbers(10, 10);
 
-    function createTable(rows, columns) {
-        const table = document.createElement("table");
-
-        for (let i = 0; i < rows; i++) {
+        for (let i = 0; i < numbers.length; i++) {
             const row = document.createElement("tr");
 
-            for (let j = 0; j < columns; j++) {
+            for (let j = 0; j < numbers[i].length; j++) {
                 const cell = document.createElement("td");
-
+                cell.textContent = numbers[i][j];
                 row.appendChild(cell);
             }
 
             table.appendChild(row);
         }
-
-        return table;
     }
 
-    // Append the table to the body of the HTML document
-    document.body.appendChild(createTable(10, 10));
+    // Function to generate a 10x10 array with integer numbers
+    function generateNumbers(rows, columns) {
+        const numbers = [];
+
+        for (let i = 0; i < rows; i++) {
+            const row = [];
+
+            for (let j = 0; j < columns; j++) {
+                const number = i * columns + j + 1;
+                row.push(number);
+            }
+
+            numbers.push(row);
+        }
+
+        return numbers;
+    }
+
+
+    createTable();
 
 
 
