@@ -32,6 +32,7 @@
             for (let j = 0; j < numbers[i].length; j++) {
                 const cell = document.createElement("td");
                 cell.textContent = numbers[i][j];
+                cell.addEventListener("mouseover", () => changeColor(cell));
                 row.appendChild(cell);
             }
 
@@ -39,7 +40,6 @@
         }
     }
 
-    // Function to generate a 10x10 array with integer numbers
     function generateNumbers(rows, columns) {
         const numbers = [];
 
@@ -57,8 +57,24 @@
         return numbers;
     }
 
+    //  checking  if a number is even or odd
+    function isEven(number) {
+        return number % 2 === 0;
+    }
+
+    //  change the cell color on mouseover
+    function changeColor(cell) {
+        const number = parseInt(cell.textContent);
+
+        if (isEven(number)) {
+            cell.style.backgroundColor = "green";
+        } else {
+            cell.style.backgroundColor = "red";
+        }
+    }
 
     createTable();
+
 
 
 
